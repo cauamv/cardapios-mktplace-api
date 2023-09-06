@@ -75,7 +75,6 @@ public class RestauranteServiceImpl implements RestauranteService {
 		Long qtdeDeCardapiosVinculados = cardapiosRepository.contarPor(id);
 		Preconditions.checkArgument(qtdeDeCardapiosVinculados == 0,
 				"Existem carápios vinculados a esse restaurante");
-		
 		this.repository.deleteById(restauranteParaExclusao.getId());
 		return restauranteParaExclusao;
 	}
