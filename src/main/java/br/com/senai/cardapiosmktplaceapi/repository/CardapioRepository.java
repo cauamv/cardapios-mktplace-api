@@ -17,7 +17,7 @@ public interface CardapioRepository extends JpaRepository<Cardapio, Integer> {
 	@Query(value = 
 			"SELECT Count (c) "
 			+ "FROM Cardapio c "
-			+ "WHERE c.restaurante.id = :idDoRestaurante ")
+			+ "WHERE c.restaurante.id = :idDoRestaurante")
 	public Long contarPor(Integer idDoRestaurante);
 	
 	@Query(value = 
@@ -29,11 +29,11 @@ public interface CardapioRepository extends JpaRepository<Cardapio, Integer> {
 			+ "JOIN FETCH oc.secao s "
 			+ "WHERE c.restaurante = :restaurante "
 			+ "AND o.status = 'A' "
-			+ "ORDER BY oc.recomendado DESC, o.nome ",
+			+ "ORDER BY oc.recomendado DESC, o.nome",
 			countQuery = 
 				"SELECT Count(c) "
 				+ "FROM Cardapio c "
-				+ "WHERE c.restaurante = :restaurante ")
+				+ "WHERE c.restaurante = :restaurante")
 	public Page<Cardapio> listarPor(Restaurante restaurante, Pageable paginacao);
 	
 	@Query(value = 
@@ -45,10 +45,10 @@ public interface CardapioRepository extends JpaRepository<Cardapio, Integer> {
 			+ "JOIN FETCH oc.secao s "
 			+ "WHERE c.id = :id "
 			+ "AND o.status = 'A' "
-			+ "ORDER BY oc.recomendado DESC, o nome ")
+			+ "ORDER BY oc.recomendado DESC, o.nome")
 	public Cardapio buscarPor(Integer id);
 	
 	@Modifying
-	@Query(value = "UPDATE Cardapio c SET c.status = :status WHERE c.id = :id ")
+	@Query(value = "UPDATE Cardapio c SET c.status = :status WHERE c.id = :id")
 	public void atualizarPor(Integer id, Status status);
 }

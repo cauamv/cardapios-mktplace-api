@@ -6,7 +6,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
+import lombok.Data;
 
+@Data
 public class CardapioSalvo {
 
 	@NotNull(message = "O id é obrigatório")
@@ -25,5 +27,6 @@ public class CardapioSalvo {
 	
 	@NotNull(message = "O status é obrigatório")
 	private Status status;
+	
 	
 }
