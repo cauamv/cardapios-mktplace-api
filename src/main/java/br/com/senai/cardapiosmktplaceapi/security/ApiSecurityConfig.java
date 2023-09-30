@@ -17,7 +17,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.RequestMatchers;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
@@ -48,7 +47,7 @@ public class ApiSecurityConfig {
 		DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
 		authenticationProvider.setUserDetailsService(service);
 		authenticationProvider.setPasswordEncoder(passwordEncoder());
-		return authenticationProvider();
+		return authenticationProvider;
 	}
 	
 	private UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource() {
