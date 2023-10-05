@@ -39,7 +39,6 @@ public class ToEmail extends RouteBuilder{
 					}
 				})
 				.toD(urlDeEnvio)
-				.process(errorProcessor)
 			.doCatch(Exception.class)
 				.setProperty("error", simple("${exception}"))
 				.process(errorProcessor)
